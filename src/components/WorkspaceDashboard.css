@@ -1,0 +1,231 @@
+/* WorkspaceDashboard.css — IMS Executive Charcoal & Gold Theme */
+
+.dash-root {
+    max-width: 1100px;
+    margin: 0 auto;
+    
+}
+
+/* ── Header Block ── */
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(42,38,32,0.10);
+}
+
+.dash-header-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1C1A14;
+    margin: 0 0 6px 0;
+    font-family: Georgia, serif;
+    letter-spacing: -0.3px;
+}
+
+.dash-header-sub {
+    font-size: 13px;
+    color: #5C5444;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.dash-new-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background: #2A2620;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 3px 10px rgba(42,38,32,0.18);
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+}
+
+.dash-new-btn:hover {
+    background: #3D3830;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(42,38,32,0.28);
+}
+
+.dash-new-btn:active {
+    background: #4A4540;
+    transform: scale(0.985);
+}
+
+/* ── Error Banner ── */
+.dash-error-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 11px 14px;
+    background: #FDF3F3;
+    border: 1px solid rgba(200,40,40,0.12);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #C92A2A;
+    margin-bottom: 20px;
+}
+
+/* ── Loading State ── */
+.dash-loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: #5C5444;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+}
+
+/* ── Empty State ── */
+.dash-empty {
+    text-align: center;
+    padding: 60px 20px;
+    border: 2px dashed rgba(191,149,48,0.30);
+    border-radius: 12px;
+    background: rgba(191,149,48,0.03);
+}
+
+.dash-empty-icon {
+    font-size: 40px;
+    margin-bottom: 14px;
+}
+
+.dash-empty-title {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1C1A14;
+    font-family: Georgia, serif;
+}
+
+.dash-empty-sub {
+    margin: 0 0 24px 0;
+    color: #5C5444;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.dash-empty-btn {
+    background: transparent;
+    border: 1.5px solid #BF9530;
+    color: #7A5800;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.dash-empty-btn:hover {
+    background: rgba(191,149,48,0.08);
+    transform: translateY(-1px);
+}
+
+/* ── Project Grid ── */
+.dash-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+}
+
+/* ── Project Card ── */
+.dash-project-card {
+    border: 1px solid rgba(42,38,32,0.10);
+    border-radius: 12px;
+    padding: 22px;
+    background: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.20s ease;
+    box-shadow: 0 2px 6px rgba(42,38,32,0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.dash-project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2A2620, #BF9530, #2A2620);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.dash-project-card:hover {
+    box-shadow: 0 8px 24px rgba(42,38,32,0.10);
+    border-color: rgba(191,149,48,0.30);
+    transform: translateY(-2px);
+}
+
+.dash-project-card:hover::before {
+    opacity: 1;
+}
+
+.dash-card-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.dash-card-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.dash-card-title {
+    margin: 0;
+    font-size: 15px;
+    color: #1C1A14;
+    font-weight: 600;
+    font-family: Georgia, serif;
+}
+
+.dash-card-desc {
+    color: #5C5444;
+    font-size: 13px;
+    margin: 0 0 16px 0;
+    min-height: 38px;
+    line-height: 1.5;
+    display: -webkit-box;
+  
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.dash-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    color: rgba(28,26,20,0.38);
+    border-top: 1px solid rgba(42,38,32,0.06);
+    padding-top: 12px;
+}
+
+.dash-card-seg-id {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.5px;
+}
+
+.dash-card-seg-id strong {
+    color: #7A5800;
+    font-weight: 600;
+}
+
+.dash-card-arrow {
+    font-size: 12px;
+    color: rgba(191,149,48,0.60);
+}

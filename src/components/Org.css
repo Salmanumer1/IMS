@@ -1,0 +1,518 @@
+/* ============================================================
+   CreateOrgLanding.css
+   Theme: Government of Pakistan — ProjectFlow Portal
+   Palette: Forest Green #01411C · Gold #C8A951 · White #FFFFFF
+   ============================================================ */
+
+/* ── Google Fonts ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ── Design Tokens ────────────────────────────────────────── */
+:root {
+  --pk-green-deep:    #01411C;
+  --pk-green-mid:     #0A6B35;
+  --pk-green-hover:   #0D8040;
+  --pk-green-light:   #E8F5EE;
+  --pk-green-border:  rgba(1, 65, 28, 0.14);
+
+  --pk-gold:          #C8A951;
+  --pk-gold-light:    #FDF6E3;
+  --pk-gold-border:   rgba(200, 169, 81, 0.35);
+  --pk-gold-glow:     rgba(200, 169, 81, 0.18);
+
+  --pk-white:         #FFFFFF;
+  --pk-page-bg:       #F0F7F3;
+
+  --pk-text:          #0D2B1A;
+  --pk-text-muted:    #4A7A5C;
+  --pk-text-faint:    rgba(13, 43, 26, 0.38);
+
+  --pk-error-bg:      #FEF2F2;
+  --pk-error-border:  rgba(220, 38, 38, 0.18);
+  --pk-error-text:    #B91C1C;
+
+  --pk-success-bg:    #E8F5EE;
+  --pk-success-border:rgba(1, 65, 28, 0.18);
+  --pk-success-text:  #0A6B35;
+
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  14px;
+  --radius-xl:  20px;
+
+  --shadow-card: 0 2px 8px rgba(1, 65, 28, 0.06), 0 8px 32px rgba(1, 65, 28, 0.08);
+  --shadow-card-hover: 0 4px 16px rgba(1, 65, 28, 0.1), 0 12px 40px rgba(1, 65, 28, 0.12);
+
+  --transition-fast:   0.15s ease;
+  --transition-mid:    0.25s ease;
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Page Container ───────────────────────────────────────── */
+.org-landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--pk-page-bg);
+  background-image:
+    radial-gradient(circle at 18% 20%, rgba(1, 65, 28, 0.06) 0%, transparent 52%),
+    radial-gradient(circle at 82% 80%, rgba(200, 169, 81, 0.07) 0%, transparent 52%);
+  font-family: 'DM Sans', 'Segoe UI', Arial, sans-serif;
+  padding: 24px;
+}
+
+/* ── Card ─────────────────────────────────────────────────── */
+.org-landing-card {
+  background: var(--pk-white);
+  padding: 44px 40px 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--pk-green-border);
+  box-shadow: var(--shadow-card);
+  width: 100%;
+  max-width: 440px;
+  transition: box-shadow var(--transition-smooth);
+  animation: cardFadeUp 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.org-landing-card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Card Header ──────────────────────────────────────────── */
+.org-landing-emblem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.org-landing-emblem-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--pk-green-light);
+  border: 1.5px solid var(--pk-gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.org-landing-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--pk-text);
+  text-align: center;
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+
+.org-landing-subtitle {
+  font-size: 13px;
+  color: var(--pk-text-muted);
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* ── Divider ──────────────────────────────────────────────── */
+.org-landing-divider {
+  height: 1px;
+  background: var(--pk-green-border);
+  margin-bottom: 24px;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────── */
+.org-landing-tabs {
+  display: flex;
+  background: var(--pk-green-light);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  margin-bottom: 28px;
+  gap: 4px;
+}
+
+.org-landing-tab {
+  flex: 1;
+  padding: 9px 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--pk-text-muted);
+  border-radius: var(--radius-sm);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
+  position: relative;
+  outline: none;
+}
+
+.org-landing-tab:hover:not(.org-landing-tab--active) {
+  background: rgba(1, 65, 28, 0.06);
+  color: var(--pk-green-mid);
+}
+
+.org-landing-tab:focus-visible {
+  box-shadow: 0 0 0 3px var(--pk-gold-glow);
+}
+
+.org-landing-tab--active {
+  background: var(--pk-white);
+  color: var(--pk-green-deep);
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(1, 65, 28, 0.12);
+}
+
+/* Gold underline on active tab */
+.org-landing-tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: var(--pk-gold);
+  border-radius: 2px;
+  animation: tabLineSlide 0.2s ease both;
+}
+
+@keyframes tabLineSlide {
+  from { left: 50%; right: 50%; opacity: 0; }
+  to   { left: 20%; right: 20%; opacity: 1; }
+}
+
+/* ── Form ─────────────────────────────────────────────────── */
+.org-landing-form {
+  display: flex;
+  flex-direction: column;
+  animation: formSlide 0.2s ease both;
+}
+
+@keyframes formSlide {
+  from { opacity: 0; transform: translateX(6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Form Group ───────────────────────────────────────────── */
+.org-landing-form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* ── Label ────────────────────────────────────────────────── */
+.org-landing-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--pk-text);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  transition: color var(--transition-fast);
+}
+
+.org-landing-form-group:focus-within .org-landing-label {
+  color: var(--pk-green-mid);
+}
+
+.org-landing-label .required {
+  color: var(--pk-gold);
+  margin-left: 2px;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+/* ── Input Wrapper (for focus ring effect) ────────────────── */
+.org-landing-input-wrap {
+  position: relative;
+}
+
+/* ── Input Field ──────────────────────────────────────────── */
+.org-landing-input {
+  width: 100%;
+  padding: 11px 14px 11px 38px;
+  border: 1.5px solid var(--pk-green-border);
+  border-radius: var(--radius-md);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--pk-text);
+  background: var(--pk-white);
+  outline: none;
+  transition:
+    border-color var(--transition-mid),
+    background var(--transition-mid),
+    box-shadow var(--transition-mid);
+  -webkit-appearance: none;
+}
+
+.org-landing-input::placeholder {
+  color: var(--pk-text-faint);
+  font-style: italic;
+  font-size: 13px;
+}
+
+/* Hover state */
+.org-landing-input:hover {
+  border-color: rgba(1, 65, 28, 0.32);
+  background: #FAFCFB;
+}
+
+/* Focus / typing state */
+.org-landing-input:focus {
+  border-color: var(--pk-green-mid);
+  background: var(--pk-white);
+  box-shadow:
+    0 0 0 3.5px rgba(10, 107, 53, 0.1),
+    0 1px 3px rgba(1, 65, 28, 0.08);
+}
+
+/* Typed-into (has value) state */
+.org-landing-input:not(:placeholder-shown) {
+  border-color: rgba(1, 65, 28, 0.38);
+  background: #FAFCFB;
+}
+
+/* Valid filled state */
+.org-landing-input:not(:placeholder-shown):not(:focus) {
+  border-color: var(--pk-green-mid);
+}
+
+/* Input icon */
+.org-landing-input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--pk-text-faint);
+  pointer-events: none;
+  transition: color var(--transition-mid);
+}
+
+.org-landing-form-group:focus-within .org-landing-input-icon {
+  color: var(--pk-green-mid);
+}
+
+/* Input hint text */
+.org-landing-input-hint {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--pk-text-muted);
+  padding-left: 2px;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+
+/* Primary — Create (deep green) */
+.org-landing-btn-primary {
+  width: 100%;
+  padding: 12px 20px;
+  background: var(--pk-green-deep);
+  color: var(--pk-white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  outline: none;
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ripple shimmer on hover */
+.org-landing-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.08), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+.org-landing-btn-primary:hover::before {
+  left: 160%;
+}
+
+.org-landing-btn-primary:hover {
+  background: var(--pk-green-hover);
+  box-shadow: 0 4px 14px rgba(1, 65, 28, 0.28);
+  transform: translateY(-1px);
+}
+
+.org-landing-btn-primary:active {
+  transform: translateY(0) scale(0.985);
+  box-shadow: 0 2px 6px rgba(1, 65, 28, 0.2);
+}
+
+.org-landing-btn-primary:focus-visible {
+  box-shadow: 0 0 0 3px var(--pk-gold-glow), 0 4px 14px rgba(1, 65, 28, 0.22);
+}
+
+/* Disabled */
+.org-landing-btn-primary:disabled,
+.org-landing-btn-secondary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Loading spinner */
+.org-landing-btn-primary.loading::after,
+.org-landing-btn-secondary.loading::after {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: btnSpin 0.7s linear infinite;
+  margin-left: 6px;
+}
+
+@keyframes btnSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Secondary — Find (gold-accented outline) */
+.org-landing-btn-secondary {
+  width: 100%;
+  padding: 12px 20px;
+  background: transparent;
+  color: var(--pk-green-deep);
+  border: 1.5px solid var(--pk-green-mid);
+  border-radius: var(--radius-md);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  outline: none;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.org-landing-btn-secondary:hover {
+  background: var(--pk-green-light);
+  border-color: var(--pk-green-deep);
+  box-shadow: 0 4px 12px rgba(1, 65, 28, 0.12);
+  transform: translateY(-1px);
+}
+
+.org-landing-btn-secondary:active {
+  transform: translateY(0) scale(0.985);
+  background: rgba(1, 65, 28, 0.08);
+  box-shadow: none;
+}
+
+.org-landing-btn-secondary:focus-visible {
+  box-shadow: 0 0 0 3px var(--pk-gold-glow);
+}
+
+/* ── Feedback Messages ────────────────────────────────────── */
+.org-landing-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 18px;
+  animation: msgSlideIn 0.2s ease both;
+}
+
+@keyframes msgSlideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.org-landing-message--success {
+  background: var(--pk-success-bg);
+  border: 1px solid var(--pk-success-border);
+  color: var(--pk-success-text);
+}
+
+.org-landing-message--error {
+  background: var(--pk-error-bg);
+  border: 1px solid var(--pk-error-border);
+  color: var(--pk-error-text);
+}
+
+.org-landing-message-icon {
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Footer Note ──────────────────────────────────────────── */
+.org-landing-footer-note {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--pk-text-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.org-landing-footer-note::before,
+.org-landing-footer-note::after {
+  content: '';
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--pk-green-border);
+}
+
+/* ── Utility — Screen Reader Only ─────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
