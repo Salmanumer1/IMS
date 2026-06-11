@@ -8,6 +8,7 @@ import Login             from './components/Login';
 import Layout            from './components/Layout';
 import WorkspaceDashboard from './components/WorkspaceDashboard';
 import CreateProject     from './components/CreateProject';
+import AgileHub from './components/AgileHub';
 
 const App = () => {
     return (
@@ -26,6 +27,7 @@ const App = () => {
                     {/* Placeholder routes — add real pages later */}
                     <Route path="/projects"      element={<PlaceholderPage title="Projects" />} />
                     <Route path="/register-user" element={<PlaceholderPage title="Onboard Members" />} />
+                    <Route path="/agile-hub" element={<AgileHub />} />
                     <Route path="/kanban"         element={<PlaceholderPage title="Kanban Board" />} />
                 </Route>
 

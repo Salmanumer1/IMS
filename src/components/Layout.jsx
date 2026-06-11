@@ -37,7 +37,7 @@ const Layout = () => {
                     {/* Dashboard Link */}
                     <Link
                         to="/workspace"
-                        className={`layout-nav-link${isActive('/workspace') ? ' active' : ''}`}
+                        className={`layout-nav-link${isActive('/workspace') ? ' actijirave' : ''}`}
                     >
                         <span className="layout-nav-icon">📊</span>
                         Dashboard
@@ -83,6 +83,15 @@ const Layout = () => {
                         Kanban Board
                         {isActive('/kanban') && <span className="layout-active-dot" />}
                     </Link>
+                      <Link
+                        to='/agile-hub'
+                        className={`layout-nav-link${isActive('/agile-hub') ? ' active' : ''}`}
+                    >
+                        <span className="layout-nav-icon">📋</span>
+                       Agile
+                        {isActive('/kanban') && <span className="layout-active-dot" />}
+                    </Link>
+                   
                 </nav>
 
                 {/* Footer */}

@@ -206,3 +206,18 @@
     padding: 36px 32px;
     overflow-x: hidden;
 }
+
+/* ── override for full-height pages like AgileHub ── */
+.layout-page-body {
+    flex: 1;
+    min-height: 0;
+    padding: 24px 28px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-page-body > * {
+    flex: 1;
+    min-height: 0;
+}

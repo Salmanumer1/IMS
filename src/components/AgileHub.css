@@ -1,0 +1,596 @@
+/* AgileHub.css — IMS Executive Charcoal & Gold Theme */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Root ── */
+.agile-hub-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    animation: fadeIn 0.22s ease;
+    min-height: 0;
+}
+
+/* ══════════════════════════════
+   TOOLBAR
+══════════════════════════════ */
+.hub-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 18px;
+    background: #FFFFFF;
+    border: 1px solid rgba(42,38,32,0.10);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 6px rgba(42,38,32,0.04);
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.project-select-pane,
+.epic-filter-pane {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.project-select-pane label,
+.epic-filter-pane label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1C1A14;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.project-select-pane select,
+.epic-filter-pane select {
+    padding: 8px 32px 8px 12px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(42,38,32,0.12);
+    background: #F7F6F4;
+    font-size: 13px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #1C1A14;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235C5444' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    min-width: 200px;
+}
+
+.project-select-pane select:focus,
+.epic-filter-pane select:focus {
+    border-color: #BF9530;
+    box-shadow: 0 0 0 3px rgba(191,149,48,0.10);
+    background-color: #FFFFFF;
+}
+
+/* ══════════════════════════════
+   WORKSPACE GRID
+══════════════════════════════ */
+.hub-workspace-grid {
+    display: flex;
+    gap: 16px;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    align-items: stretch;
+}
+
+/* ══════════════════════════════
+   MANAGEMENT SIDEBAR
+══════════════════════════════ */
+.hub-management-sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* custom scrollbar for sidebar */
+.hub-management-sidebar::-webkit-scrollbar { width: 4px; }
+.hub-management-sidebar::-webkit-scrollbar-track { background: transparent; }
+.hub-management-sidebar::-webkit-scrollbar-thumb { background: rgba(191,149,48,0.25); border-radius: 4px; }
+
+/* ── Sidebar Card ── */
+.sidebar-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(42,38,32,0.10);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(42,38,32,0.04);
+    flex-shrink: 0;
+}
+
+/* Collapsible Header */
+.sidebar-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 16px;
+    background: linear-gradient(90deg, #2A2620, #3D3830);
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
+}
+
+.sidebar-card-header.no-toggle {
+    cursor: default;
+}
+
+.sidebar-card-header:hover:not(.no-toggle) {
+    background: linear-gradient(90deg, #3D3830, #4A4540);
+}
+
+.sidebar-card-header h3 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: rgba(191,149,48,0.85);
+    margin: 0;
+}
+
+.collapse-toggle {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(191,149,48,0.70);
+    line-height: 1;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.epic-count-pill {
+    background: rgba(191,149,48,0.18);
+    border: 1px solid rgba(191,149,48,0.35);
+    color: #BF9530;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 20px;
+    padding: 1px 8px;
+    min-width: 22px;
+    text-align: center;
+}
+
+/* ── Inline Forms ── */
+.inline-hub-form {
+    padding: 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: slideDown 0.18s ease;
+}
+
+.inline-hub-form input,
+.inline-hub-form textarea,
+.inline-hub-form select {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 7px;
+    border: 1.5px solid rgba(42,38,32,0.12);
+    background: #FDFCFB;
+    font-size: 13px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #1C1A14;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    resize: vertical;
+}
+
+.inline-hub-form input:focus,
+.inline-hub-form textarea:focus,
+.inline-hub-form select:focus {
+    border-color: #BF9530;
+    box-shadow: 0 0 0 3px rgba(191,149,48,0.10);
+    background: #FFFFFF;
+}
+
+.inline-hub-form textarea { min-height: 60px; }
+
+/* ── Buttons ── */
+.hub-btn-primary {
+    padding: 9px 14px;
+    background: #2A2620;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: 0 2px 8px rgba(42,38,32,0.16);
+}
+.hub-btn-primary:hover { background: #3D3830; transform: translateY(-1px); }
+
+.hub-btn-success {
+    padding: 9px 14px;
+    background: rgba(191,149,48,0.12);
+    color: #7A5800;
+    border: 1.5px solid rgba(191,149,48,0.35);
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.hub-btn-success:hover { background: rgba(191,149,48,0.22); transform: translateY(-1px); }
+
+/* ── Epics List — scrollable ── */
+.active-epics-list {
+    /* allow this card to grow and scroll */
+    min-height: 0;
+    max-height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.active-epics-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+}
+
+.active-epics-list ul::-webkit-scrollbar { width: 3px; }
+.active-epics-list ul::-webkit-scrollbar-thumb { background: rgba(191,149,48,0.25); border-radius: 3px; }
+
+.active-epics-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-radius: 7px;
+    font-size: 13px;
+    color: #1C1A14;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+    flex-shrink: 0;
+}
+
+.active-epics-list li span { flex: 1; }
+
+.active-epics-list li:hover {
+    background: #F7F6F4;
+    border-color: rgba(42,38,32,0.08);
+}
+
+.active-epics-list li.active-epic-item {
+    background: rgba(191,149,48,0.08);
+    border-color: rgba(191,149,48,0.28);
+    color: #7A5800;
+    font-weight: 600;
+}
+
+.empty-epics-note {
+    font-size: 12px;
+    color: rgba(28,26,20,0.35);
+    padding: 10px 10px;
+    cursor: default !important;
+}
+
+.hub-btn-danger-text {
+    background: none;
+    border: none;
+    color: rgba(201,42,42,0.45);
+    font-size: 13px;
+    cursor: pointer;
+    padding: 2px 5px;
+    border-radius: 4px;
+    line-height: 1;
+    transition: color 0.15s ease, background 0.15s ease;
+    flex-shrink: 0;
+}
+.hub-btn-danger-text:hover { color: #C92A2A; background: rgba(201,42,42,0.07); }
+
+/* ══════════════════════════════
+   KANBAN BOARD
+══════════════════════════════ */
+.hub-kanban-board {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    gap: 12px;
+    min-width: 0;
+    overflow-x: auto;
+    
+    padding-bottom: 4px;
+    /* critical: board itself must not overflow so columns can scroll */
+
+    align-items: stretch;
+}
+
+/* ── Column ── */
+.kanban-column {
+    background: transparent;
+    border-radius: 12px;
+    border: 1px solid rgba(42,38,32,0.10);
+    display: flex;
+    flex-direction: column;
+    min-width: 190px;
+    min-height: 0;
+  
+    overflow-y: auto;
+}
+
+.column-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px 9px;
+    background: transparent;
+    border-bottom: 1px solid rgba(42,38,32,0.08);
+    flex-shrink: 0;
+}
+
+.column-header h4 {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--col-color, rgba(28,26,20,0.55));
+}
+
+.card-counter-pill {
+    background: transparent;
+    border: 1.5px solid var(--col-color, rgba(42,38,32,0.20));
+    color: var(--col-color, rgba(28,26,20,0.55));
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 20px;
+    padding: 1px 8px;
+    min-width: 22px;
+    text-align: center;
+    opacity: 0.80;
+}
+
+/* scrollable cards area — THIS is what scrolls */
+.column-cards-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-height: 0; /* critical for flex scroll to work */
+}
+
+.column-cards-container::-webkit-scrollbar { width: 3px; }
+.column-cards-container::-webkit-scrollbar-track { background: transparent; }
+.column-cards-container::-webkit-scrollbar-thumb {
+    background: rgba(42,38,32,0.12);
+    border-radius: 3px;
+}
+.column-cards-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(191,149,48,0.30);
+}
+
+/* Empty drop hint */
+.empty-column-hint {
+    text-align: center;
+    font-size: 11px;
+    color: rgba(28,26,20,0.20);
+    padding: 20px 0;
+    letter-spacing: 0.3px;
+    border: 1.5px dashed rgba(42,38,32,0.08);
+    border-radius: 8px;
+}
+
+/* ── Task Card ── */
+.kanban-task-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(42,38,32,0.10);
+    border-radius: 10px;
+    padding: 12px 12px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    box-shadow: 0 1px 4px rgba(42,38,32,0.05);
+    transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+    flex-shrink: 0;
+}
+
+.kanban-task-card:active { cursor: grabbing; }
+
+.kanban-task-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2A2620, #BF9530);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.kanban-task-card:hover {
+    box-shadow: 0 6px 18px rgba(42,38,32,0.10);
+    border-color: rgba(191,149,48,0.28);
+    transform: translateY(-2px);
+}
+
+.kanban-task-card:hover::before { opacity: 1; }
+
+.epic-tag-badge {
+    display: inline-block;
+    background: rgba(191,149,48,0.10);
+    border: 1px solid rgba(191,149,48,0.32);
+    color: #7A5800;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border-radius: 4px;
+    padding: 2px 7px;
+    align-self: flex-start;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+.epic-tag-badge:hover { background: rgba(191,149,48,0.20); }
+
+.kanban-task-card h5 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1C1A14;
+    line-height: 1.4;
+}
+
+/* ── Card Dropdowns ── */
+.card-dropdown-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.card-dropdown-control span {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(28,26,20,0.40);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.card-dropdown-control select {
+    flex: 1;
+    padding: 4px 22px 4px 7px;
+    border-radius: 6px;
+    border: 1px solid rgba(42,38,32,0.12);
+    background: #F7F6F4;
+    font-size: 11px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #1C1A14;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%235C5444' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 6px center;
+    transition: border-color 0.15s ease;
+}
+.card-dropdown-control select:focus { border-color: #BF9530; }
+
+/* ══════════════════════════════
+   EPIC DETAIL MODAL
+══════════════════════════════ */
+.epic-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(28,26,20,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    animation: fadeIn 0.18s ease;
+}
+
+.epic-modal-content {
+    background: #FFFFFF;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 480px;
+    border: 1px solid rgba(42,38,32,0.12);
+    box-shadow: 0 20px 60px rgba(42,38,32,0.22);
+    overflow: hidden;
+}
+
+.epic-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #2A2620, #3D3830);
+    border-bottom: 2px solid #BF9530;
+}
+
+.epic-modal-header h4 {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(191,149,48,0.85);
+}
+
+.epic-modal-close {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.55);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 2px;
+    transition: color 0.15s ease;
+}
+.epic-modal-close:hover { color: #FFFFFF; }
+
+.epic-modal-body {
+    padding: 24px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.epic-detail-field label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: rgba(28,26,20,0.38);
+    margin-bottom: 6px;
+}
+
+.epic-detail-field h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1C1A14;
+    font-family: Georgia, serif;
+    letter-spacing: -0.3px;
+}
+
+.epic-description-text {
+    margin: 0;
+    font-size: 13.5px;
+    color: #5C5444;
+    line-height: 1.65;
+    padding: 12px 14px;
+    background: #F7F6F4;
+    border-radius: 8px;
+    border: 1px solid rgba(42,38,32,0.08);
+}
