@@ -135,9 +135,10 @@
 
 /* ── Project Grid ── */
 .dash-grid {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 18px;
+    flex-direction: row;
 }
 
 /* ── Project Card ── */

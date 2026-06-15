@@ -91,6 +91,14 @@ const Layout = () => {
                        Agile
                         {isActive('/kanban') && <span className="layout-active-dot" />}
                     </Link>
+                        <Link
+                        to='/for-you'
+                        className={`layout-nav-link${isActive('/for-you') ? ' active' : ''}`}
+                    >
+                        <span className="layout-nav-icon">📋</span>
+                       ForYou
+                        {isActive('/kanban') && <span className="layout-active-dot" />}
+                    </Link>
                    
                 </nav>
 
