@@ -83,6 +83,15 @@ const Layout = () => {
                         Kanban Board
                         {isActive('/kanban') && <span className="layout-active-dot" />}
                     </Link>
+                     <Link
+                        to="/sprints"
+                        className={`layout-nav-link${isActive('/sprints') ? ' actijirave' : ''}`}
+                    >
+                        <span className="layout-nav-icon">📊</span>
+                        Sprints
+                        {isActive('/sprints') && <span className="layout-active-dot" />}
+                    </Link>
+
                       <Link
                         to='/agile-hub'
                         className={`layout-nav-link${isActive('/agile-hub') ? ' active' : ''}`}

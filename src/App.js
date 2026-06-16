@@ -10,6 +10,7 @@ import WorkspaceDashboard from './components/WorkspaceDashboard';
 import CreateProject     from './components/CreateProject';
 import AgileHub from './components/AgileHub';
 import ForYou from './components/ForYou';
+import SprintConsole from './components/SprintConsole';
 // inside <Route element={<Layout />}>
 
 
@@ -32,6 +33,7 @@ const App = () => {
                     <Route path="/register-user" element={<PlaceholderPage title="Onboard Members" />} />
                     <Route path="/agile-hub" element={<AgileHub />} />
                     <Route path="/kanban"         element={<PlaceholderPage title="Kanban Board" />} />
+                    <Route path="/sprints" element={<SprintConsole />} />
                     <Route path="/for-you" element={<ForYou />} />
                 </Route>
 
