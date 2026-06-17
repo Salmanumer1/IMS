@@ -1,0 +1,789 @@
+/* GitIntegration.css — IMS Executive Charcoal & Gold Theme */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.gi-root {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    animation: fadeIn 0.22s ease;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ══════════════════════════════
+   HEADER
+══════════════════════════════ */
+.gi-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(42,38,32,0.10);
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.gi-header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.gi-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1C1A14;
+    margin: 0 0 4px 0;
+    font-family: Georgia, serif;
+    letter-spacing: -0.3px;
+}
+
+.gi-subtitle {
+    font-size: 13px;
+    color: #5C5444;
+    margin: 0;
+}
+
+.gi-header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.gi-project-select {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gi-project-select label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1C1A14;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.gi-project-select select {
+    padding: 8px 32px 8px 12px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(42,38,32,0.12);
+    background: #F7F6F4;
+    font-size: 13px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #1C1A14;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235C5444' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    min-width: 220px;
+    transition: border-color 0.2s ease;
+}
+
+.gi-project-select select:focus {
+    border-color: #BF9530;
+    box-shadow: 0 0 0 3px rgba(191,149,48,0.10);
+}
+
+.gi-refresh-btn {
+    padding: 8px 16px;
+    background: rgba(191,149,48,0.10);
+    border: 1.5px solid rgba(191,149,48,0.30);
+    color: #7A5800;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.gi-refresh-btn:hover {
+    background: rgba(191,149,48,0.18);
+    transform: translateY(-1px);
+}
+
+/* ══════════════════════════════
+   NAV TABS
+══════════════════════════════ */
+.gi-tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid rgba(42,38,32,0.10);
+    padding-bottom: 0;
+}
+
+.gi-tab {
+    padding: 9px 18px;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #5C5444;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.15s ease;
+    border-radius: 6px 6px 0 0;
+}
+
+.gi-tab:hover { color: #1C1A14; background: rgba(42,38,32,0.04); }
+
+.gi-tab.active {
+    color: #1C1A14;
+    font-weight: 600;
+    border-bottom: 2px solid #BF9530;
+    background: rgba(191,149,48,0.05);
+}
+
+/* ══════════════════════════════
+   SHARED VIEW WRAPPER
+══════════════════════════════ */
+.gi-view {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ══════════════════════════════
+   METRIC CARDS
+══════════════════════════════ */
+.gi-metrics-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.gi-metric-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(42,38,32,0.10);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 0 2px 6px rgba(42,38,32,0.04);
+}
+
+.gi-metric-gold { border-left: 3px solid #BF9530; }
+.gi-metric-green { border-left: 3px solid rgba(34,120,70,0.60); }
+
+.gi-metric-num {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1C1A14;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.gi-metric-gold .gi-metric-num { color: #7A5800; }
+.gi-metric-green .gi-metric-num { color: #1A6B3C; }
+
+.gi-metric-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(28,26,20,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ══════════════════════════════
+   STREAM LAYOUT
+══════════════════════════════ */
+.gi-stream-layout {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+/* ── Feed ── */
+.gi-feed {
+    flex: 1;
+    min-width: 0;
+    background: #FFFFFF;
+    border: 1px solid rgba(42,38,32,0.10);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(42,38,32,0.04);
+}
+
+.gi-feed-tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(42,38,32,0.08);
+    background: #FDFCFB;
+}
+
+.gi-feed-tab {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 11px 18px;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    color: #5C5444;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.15s ease;
+}
+
+.gi-feed-tab span {
+    font-size: 10px;
+    font-weight: 700;
+    background: rgba(42,38,32,0.07);
+    color: rgba(28,26,20,0.55);
+    border-radius: 10px;
+    padding: 1px 7px;
+}
+
+.gi-feed-tab:hover { color: #1C1A14; }
+
+.gi-feed-tab.active {
+    color: #1C1A14;
+    font-weight: 600;
+    border-bottom: 2px solid #BF9530;
+}
+
+.gi-feed-tab.active span {
+    background: rgba(191,149,48,0.12);
+    color: #7A5800;
+}
+
+.gi-feed-body {
+    max-height: 480px;
+    overflow-y: auto;
+}
+
+.gi-feed-body::-webkit-scrollbar { width: 3px; }
+.gi-feed-body::-webkit-scrollbar-thumb { background: rgba(191,149,48,0.22); border-radius: 3px; }
+
+.gi-empty {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 13px;
+    color: rgba(28,26,20,0.35);
+}
+
+/* ── Commit Row ── */
+.gi-commit-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(42,38,32,0.06);
+    transition: background 0.15s ease;
+}
+
+.gi-commit-row:last-child { border-bottom: none; }
+.gi-commit-row:hover { background: rgba(191,149,48,0.03); }
+
+.gi-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2A2620, #3D3830);
+    border: 1.5px solid rgba(191,149,48,0.30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #BF9530;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+}
+
+.gi-commit-body { flex: 1; min-width: 0; }
+
+.gi-commit-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.gi-commit-msg {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1C1A14;
+    line-height: 1.4;
+    font-family: 'Courier New', monospace;
+}
+
+.gi-hash-pill {
+    font-size: 10px;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    color: #7A5800;
+    background: rgba(191,149,48,0.10);
+    border: 1px solid rgba(191,149,48,0.25);
+    border-radius: 4px;
+    padding: 2px 7px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.gi-commit-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    color: #5C5444;
+    flex-wrap: wrap;
+}
+
+.gi-branch-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    background: rgba(42,38,32,0.06);
+    border: 1px solid rgba(42,38,32,0.10);
+    border-radius: 4px;
+    padding: 1px 6px;
+    color: rgba(28,26,20,0.65);
+}
+
+.gi-meta-time {
+    color: rgba(28,26,20,0.35);
+    font-size: 11px;
+}
+
+.gi-task-pill {
+    font-size: 10px;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    color: #1A6B3C;
+    background: rgba(34,120,70,0.08);
+    border: 1px solid rgba(34,120,70,0.22);
+    border-radius: 4px;
+    padding: 3px 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+/* ── PR Row ── */
+.gi-pr-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(42,38,32,0.06);
+    transition: background 0.15s ease;
+}
+
+.gi-pr-row:last-child { border-bottom: none; }
+.gi-pr-row:hover { background: rgba(191,149,48,0.03); }
+
+.gi-pr-status {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 5px;
+    padding: 3px 9px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.gi-pr-body { flex: 1; min-width: 0; }
+
+.gi-pr-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1C1A14;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.gi-pr-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #5C5444;
+    flex-wrap: wrap;
+}
+
+/* ── Repo Sidebar ── */
+.gi-repo-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    background: #FFFFFF;
+    border: 1px solid rgba(42,38,32,0.10);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(42,38,32,0.04);
+}
+
+.gi-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: linear-gradient(90deg, #2A2620, #3D3830);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: rgba(191,149,48,0.80);
+}
+
+.gi-sidebar-count {
+    background: rgba(191,149,48,0.18);
+    border: 1px solid rgba(191,149,48,0.35);
+    color: #BF9530;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 20px;
+    padding: 1px 8px;
+}
+
+.gi-sidebar-empty {
+    font-size: 12px;
+    color: rgba(28,26,20,0.35);
+    padding: 16px 14px;
+    margin: 0;
+}
+
+.gi-sidebar-repo {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(42,38,32,0.06);
+    transition: background 0.15s ease;
+}
+
+.gi-sidebar-repo:last-child { border-bottom: none; }
+.gi-sidebar-repo:hover { background: rgba(191,149,48,0.03); }
+
+.gi-sidebar-repo-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #1C1A14;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 5px;
+    word-break: break-all;
+}
+
+.gi-repo-icon {
+    font-size: 13px;
+    color: #BF9530;
+    flex-shrink: 0;
+}
+
+.gi-sidebar-repo-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gi-pulse {
+    font-size: 10px;
+    font-weight: 600;
+    color: #1A6B3C;
+    letter-spacing: 0.3px;
+}
+
+.gi-sync-time {
+    font-size: 10px;
+    color: rgba(28,26,20,0.35);
+}
+
+/* ══════════════════════════════
+   CONFIG PANEL
+══════════════════════════════ */
+.gi-config-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.gi-config-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(42,38,32,0.10);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(42,38,32,0.04);
+}
+
+.gi-config-card-strip {
+    padding: 9px 18px;
+    background: linear-gradient(90deg, #2A2620, #3D3830);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(191,149,48,0.80);
+}
+
+.gi-config-card-body {
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.gi-config-desc {
+    font-size: 13px;
+    color: #5C5444;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.gi-provider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gi-provider-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1C1A14;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.gi-provider-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(42,38,32,0.14);
+    background: #F7F6F4;
+    font-size: 12px;
+    font-weight: 600;
+    color: #5C5444;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.gi-provider-btn.active {
+    background: #2A2620;
+    border-color: #2A2620;
+    color: #FFFFFF;
+}
+
+.gi-oauth-btn {
+    padding: 11px 18px;
+    background: #2A2620;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: 0 3px 10px rgba(42,38,32,0.18);
+    width: 100%;
+}
+
+.gi-oauth-btn:hover {
+    background: #3D3830;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(42,38,32,0.26);
+}
+
+.gi-connected-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: rgba(34,120,70,0.07);
+    border: 1px solid rgba(34,120,70,0.22);
+    border-radius: 8px;
+}
+
+.gi-connected-check {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(34,120,70,0.15);
+    border: 2px solid rgba(34,120,70,0.40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1A6B3C;
+    flex-shrink: 0;
+}
+
+.gi-connected-banner strong { font-size: 13px; color: #1A6B3C; }
+.gi-connected-banner p { font-size: 11.5px; color: #5C5444; margin: 3px 0 0 0; }
+
+.gi-project-status { padding: 4px 0; }
+
+.gi-project-active {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: rgba(191,149,48,0.07);
+    border: 1px solid rgba(191,149,48,0.25);
+    border-radius: 8px;
+}
+
+.gi-active-dot {
+    font-size: 18px;
+    color: #BF9530;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.gi-project-status-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(28,26,20,0.40);
+    margin-bottom: 3px;
+}
+
+.gi-project-status-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1C1A14;
+    font-family: Georgia, serif;
+}
+
+/* ── Available Repos ── */
+.gi-avail-repos {
+    background: #FFFFFF;
+    border: 1px solid rgba(42,38,32,0.10);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(42,38,32,0.04);
+}
+
+.gi-avail-strip {
+    padding: 9px 18px;
+    background: linear-gradient(90deg, #2A2620, #3D3830);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(191,149,48,0.80);
+}
+
+.gi-avail-body { padding: 18px; }
+
+.gi-avail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+}
+
+.gi-avail-card {
+    border: 1px solid rgba(42,38,32,0.10);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    background: #FDFCFB;
+}
+
+.gi-avail-card:hover:not(.linked) {
+    box-shadow: 0 6px 18px rgba(42,38,32,0.08);
+    border-color: rgba(191,149,48,0.30);
+    transform: translateY(-2px);
+}
+
+.gi-avail-card.linked {
+    background: rgba(34,120,70,0.04);
+    border-color: rgba(34,120,70,0.20);
+}
+
+.gi-avail-card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gi-repo-icon-lg {
+    font-size: 20px;
+    color: #BF9530;
+    flex-shrink: 0;
+}
+
+.gi-avail-repo-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1C1A14;
+    font-family: 'Courier New', monospace;
+    line-height: 1.3;
+}
+
+.gi-avail-repo-owner {
+    font-size: 11px;
+    color: rgba(28,26,20,0.40);
+    font-family: 'Courier New', monospace;
+}
+
+.gi-linked-badge {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 700;
+    color: #1A6B3C;
+    background: rgba(34,120,70,0.10);
+    border: 1px solid rgba(34,120,70,0.25);
+    border-radius: 4px;
+    padding: 2px 7px;
+    flex-shrink: 0;
+}
+
+.gi-avail-repo-desc {
+    font-size: 12px;
+    color: #5C5444;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.gi-link-btn {
+    padding: 8px 14px;
+    background: #2A2620;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 7px;
+    font-size: 12.5px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: 0 2px 6px rgba(42,38,32,0.14);
+    width: 100%;
+}
+
+.gi-link-btn:hover:not(.disabled) {
+    background: #3D3830;
+    transform: translateY(-1px);
+}
+
+.gi-link-btn.disabled {
+    background: rgba(34,120,70,0.10);
+    color: #1A6B3C;
+    border: 1px solid rgba(34,120,70,0.25);
+    cursor: not-allowed;
+    box-shadow: none;
+}

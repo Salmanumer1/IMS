@@ -11,6 +11,7 @@ import CreateProject     from './components/CreateProject';
 import AgileHub from './components/AgileHub';
 import ForYou from './components/ForYou';
 import SprintConsole from './components/SprintConsole';
+import GitIntegration from './components/GitIntegration';
 // inside <Route element={<Layout />}>
 
 
@@ -35,6 +36,7 @@ const App = () => {
                     <Route path="/kanban"         element={<PlaceholderPage title="Kanban Board" />} />
                     <Route path="/sprints" element={<SprintConsole />} />
                     <Route path="/for-you" element={<ForYou />} />
+                    <Route path="/git" element={<GitIntegration />} />
                 </Route>
 
                 {/* Catch-all */}

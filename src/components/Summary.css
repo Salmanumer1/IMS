@@ -1,0 +1,257 @@
+/* frontend/src/pages/Summary.css */
+
+.summary-dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #2D3748;
+    background-color: #FAFAFA;
+}
+
+/* ── Fallback States ── */
+.summary-loading, 
+.summary-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 280px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #4A5568;
+}
+.summary-error {
+    color: #E53E3E;
+}
+
+/* ── Header Area ── */
+.summary-header {
+    margin-bottom: 32px;
+}
+
+.summary-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    color: #1A202C;
+}
+
+.summary-header p {
+    margin: 0;
+    font-size: 14px;
+    color: #718096;
+}
+
+/* ── KPI Layout Grid ── */
+.summary-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.summary-kpi-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.kpi-icon {
+    font-size: 22px;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F7FAFC;
+    flex-shrink: 0;
+}
+
+.kpi-label {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #718096;
+}
+
+.summary-kpi-card h3 {
+    margin: 2px 0 0 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1A202C;
+}
+
+/* Left Accent KPI Borders */
+.kpi-1 { border-left: 4px solid #4A5568; }
+.kpi-2 { border-left: 4px solid #F59E0B; }
+.kpi-3 { border-left: 4px solid #10B981; }
+.kpi-4 { border-left: 4px solid #3B82F6; }
+.kpi-5 { border-left: 4px solid #6366F1; }
+.kpi-6 { border-left: 4px solid #8B5CF6; }
+
+/* ── Charts Presentation Grid ── */
+.summary-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.summary-chart-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+}
+
+.summary-chart-card h3 {
+    margin: 0 0 20px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2D3748;
+}
+
+.chart-full-width {
+    grid-column: span 2;
+}
+
+/* ── Epic Progress Row Styles ── */
+.epic-progress-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.epic-progress-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.epic-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.epic-info h4 {
+    margin: 0;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #2D3748;
+}
+
+.epic-count {
+    font-size: 12px;
+    color: #718096;
+}
+
+.epic-progress-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.epic-progress-bar {
+    flex: 1;
+    height: 8px;
+    background: #EDF2F7;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-percent {
+    font-size: 12px;
+    font-weight: 600;
+    color: #4A5568;
+    min-width: 32px;
+    text-align: right;
+}
+
+/* ── Sprint Overview Table Layout ── */
+.sprint-overview-table {
+    overflow-x: auto;
+}
+
+.sprint-overview-table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13.5px;
+}
+
+.sprint-overview-table th {
+    background: #F7FAFC;
+    color: #4A5568;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-bottom: 2px solid #EDF2F7;
+}
+
+.sprint-overview-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #EDF2F7;
+    color: #4A5568;
+}
+
+.sprint-overview-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Badges styling */
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.sprint-active {
+    background-color: #E6FFFA;
+    color: #047481;
+}
+
+.sprint-planned {
+    background-color: #EBF8FF;
+    color: #2B6CB0;
+}
+
+.sprint-closed {
+    background-color: #EDF2F7;
+    color: #4A5568;
+}
+
+.no-data {
+    color: #A0AEC0;
+    font-size: 13px;
+    text-align: center;
+    padding: 24px 0;
+    margin: 0;
+}
+
+/* ── Responsive Screen Adjustments ── */
+@media (max-width: 820px) {
+    .summary-charts-grid {
+        grid-template-columns: 1fr;
+    }
+    .chart-full-width {
+        grid-column: span 1;
+    }
+}

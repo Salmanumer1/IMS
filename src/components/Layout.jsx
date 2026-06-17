@@ -43,7 +43,14 @@ const Layout = () => {
                         Dashboard
                         {isActive('/workspace') && <span className="layout-active-dot" />}
                     </Link>
-
+                       <Link
+                        to="/git"
+                        className={`layout-nav-link${isActive('/git') ? ' actijirave' : ''}`}
+                    >
+                        <span className="layout-nav-icon">📊</span>
+                       Git
+                        {isActive('/git') && <span className="layout-active-dot" />}
+                    </Link>
                     {/* Projects Link */}
                     <Link
                         to="/projects"

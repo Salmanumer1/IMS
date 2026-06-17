@@ -3,7 +3,8 @@
 .dash-root {
     max-width: 1100px;
     margin: 0 auto;
-    
+    padding: 20px;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 /* ── Header Block ── */
@@ -17,7 +18,7 @@
 }
 
 .dash-header-title {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
     color: #1C1A14;
     margin: 0 0 6px 0;
@@ -32,6 +33,21 @@
     line-height: 1.5;
 }
 
+.dash-header-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.dash-selector {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(42,38,32,0.2);
+    font-size: 13.5px;
+    color: #1C1A14;
+    background-color: #FFFFFF;
+}
+
 .dash-new-btn {
     display: flex;
     align-items: center;
@@ -43,7 +59,6 @@
     border-radius: 8px;
     font-size: 13.5px;
     font-weight: 600;
-    font-family: 'Segoe UI', Arial, sans-serif;
     cursor: pointer;
     white-space: nowrap;
     box-shadow: 0 3px 10px rgba(42,38,32,0.18);
@@ -57,36 +72,278 @@
     box-shadow: 0 6px 16px rgba(42,38,32,0.28);
 }
 
-.dash-new-btn:active {
-    background: #4A4540;
-    transform: scale(0.985);
-}
-
 /* ── Error Banner ── */
 .dash-error-banner {
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 11px 14px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
     background: #FDF3F3;
     border: 1px solid rgba(200,40,40,0.12);
     border-radius: 8px;
     font-size: 13px;
     font-weight: 500;
     color: #C92A2A;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    cursor: pointer;
 }
 
-/* ── Loading State ── */
-.dash-loading {
-    text-align: center;
-    padding: 60px 20px;
+/* ── Tab Layout Controls ── */
+.dash-tabs-nav {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(42,38,32,0.1);
+}
+
+.dash-tab-item {
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
     color: #5C5444;
     font-size: 14px;
-    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all 0.15s ease;
 }
 
-/* ── Empty State ── */
+.dash-tab-item.active {
+    border-bottom: 2px solid #BF9530;
+    color: #1C1A14;
+    font-weight: 600;
+}
+
+/* ── Grid Variations ── */
+.dash-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+}
+
+.dash-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.dash-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 24px;
+}
+
+.chart-full-span {
+    grid-column: 1 / -1;
+}
+
+/* ── Project / Layout Panels ── */
+.dash-project-card {
+    border: 1px solid rgba(42,38,32,0.10);
+    border-radius: 12px;
+    padding: 22px;
+    background: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(42,38,32,0.04);
+    transition: all 0.20s ease;
+}
+
+.dash-project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2A2620, #BF9530, #2A2620);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.dash-project-card:hover {
+    box-shadow: 0 8px 24px rgba(42,38,32,0.10);
+    border-color: rgba(191,149,48,0.30);
+    transform: translateY(-2px);
+}
+
+.dash-project-card:hover::before {
+    opacity: 1;
+}
+
+/* ── Card Elements ── */
+.dash-card-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.dash-card-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.dash-card-title {
+    margin: 0;
+    font-size: 15px;
+    color: #1C1A14;
+    font-weight: 600;
+    font-family: Georgia, serif;
+}
+
+.dash-card-desc {
+    color: #5C5444;
+    font-size: 13px;
+    margin: 0 0 16px 0;
+    min-height: 38px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.dash-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    color: rgba(28,26,20,0.38);
+    border-top: 1px solid rgba(42,38,32,0.06);
+    padding-top: 12px;
+}
+
+.dash-card-seg-id {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.5px;
+}
+
+.dash-card-seg-id strong {
+    color: #7A5800;
+    font-weight: 600;
+}
+
+.dash-card-arrow {
+    font-size: 12px;
+    color: rgba(191,149,48,0.60);
+}
+
+/* ── KPI Typography Setup ── */
+.kpi-card-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kpi-card-label {
+    margin: 0;
+    font-size: 11px;
+    color: #5C5444;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.kpi-card-value {
+    margin: 4px 0 0 0;
+    font-family: Georgia, serif;
+    color: #1C1A14;
+    font-size: 26px;
+}
+
+.kpi-card-icon {
+    font-size: 24px;
+}
+
+/* ── Row Display Structure (Tasks) ── */
+.dash-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+}
+
+.task-row-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.task-row-id {
+    font-size: 14px;
+    color: #5C5444;
+    font-weight: 500;
+}
+
+.task-row-right {
+    display: flex;
+    gap: 8px;
+}
+
+/* ── Component Badge Elements ── */
+.badge-pill {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.badge-charcoal {
+    background: #2A2620;
+    color: #FFFFFF;
+}
+
+.badge-gold {
+    background: rgba(191,149,48,0.15);
+    color: #7A5800;
+    font-weight: 600;
+}
+
+/* ── Sprint Presentation Blocks ── */
+.sprint-row-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.sprint-badge-status {
+    font-size: 12px;
+    color: #BF9530;
+    font-weight: 600;
+}
+
+.sprint-date-label {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    color: #5C5444;
+}
+
+.sprint-progress-bg {
+    height: 6px;
+    background: rgba(42,38,32,0.06);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.sprint-progress-fill {
+    height: 100%;
+    background: #BF9530;
+    border-radius: 3px;
+}
+
+.sprint-percentage-label {
+    margin: 6px 0 0 0;
+    font-size: 11px;
+    text-align: right;
+    color: #5C5444;
+}
+
+/* ── Fallback Blank Panel Blueprint ── */
 .dash-empty {
     text-align: center;
     padding: 60px 20px;
@@ -123,7 +380,6 @@
     border-radius: 8px;
     font-size: 13.5px;
     font-weight: 600;
-    font-family: 'Segoe UI', Arial, sans-serif;
     cursor: pointer;
     transition: all 0.15s ease;
 }
@@ -131,102 +387,4 @@
 .dash-empty-btn:hover {
     background: rgba(191,149,48,0.08);
     transform: translateY(-1px);
-}
-
-/* ── Project Grid ── */
-.dash-grid {
-    display: flex;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 18px;
-    flex-direction: row;
-}
-
-/* ── Project Card ── */
-.dash-project-card {
-    border: 1px solid rgba(42,38,32,0.10);
-    border-radius: 12px;
-    padding: 22px;
-    background: #FFFFFF;
-    cursor: pointer;
-    transition: all 0.20s ease;
-    box-shadow: 0 2px 6px rgba(42,38,32,0.04);
-    position: relative;
-    overflow: hidden;
-}
-
-.dash-project-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #2A2620, #BF9530, #2A2620);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-.dash-project-card:hover {
-    box-shadow: 0 8px 24px rgba(42,38,32,0.10);
-    border-color: rgba(191,149,48,0.30);
-    transform: translateY(-2px);
-}
-
-.dash-project-card:hover::before {
-    opacity: 1;
-}
-
-.dash-card-title-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.dash-card-icon {
-    font-size: 18px;
-    flex-shrink: 0;
-}
-
-.dash-card-title {
-    margin: 0;
-    font-size: 15px;
-    color: #1C1A14;
-    font-weight: 600;
-    font-family: Georgia, serif;
-}
-
-.dash-card-desc {
-    color: #5C5444;
-    font-size: 13px;
-    margin: 0 0 16px 0;
-    min-height: 38px;
-    line-height: 1.5;
-    display: -webkit-box;
-  
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.dash-card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 11px;
-    color: rgba(28,26,20,0.38);
-    border-top: 1px solid rgba(42,38,32,0.06);
-    padding-top: 12px;
-}
-
-.dash-card-seg-id {
-    font-family: 'Courier New', monospace;
-    letter-spacing: 0.5px;
-}
-
-.dash-card-seg-id strong {
-    color: #7A5800;
-    font-weight: 600;
-}
-
-.dash-card-arrow {
-    font-size: 12px;
-    color: rgba(191,149,48,0.60);
 }
