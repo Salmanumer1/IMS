@@ -1,5 +1,6 @@
 // frontend/src/pages/WorkspaceDashboard.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Added for navigation
 import './WorkspaceDashboard.css';
 import {
     LineChart, Line, BarChart, Bar,
@@ -7,7 +8,6 @@ import {
     Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
-// Static Mock Data for Layout Tracking
 const MOCK_PROJECTS = [
     { id: '1', name: 'ProjectFlow Core', project_key: 'PFC', description: 'Enterprise workspace and workflow planning management tracking dashboard.' },
     { id: '2', name: 'IMS Analytics Hub', project_key: 'IAH', description: 'Data integration pipeline and cross-platform metrics reporting application.' },
@@ -28,6 +28,7 @@ const MOCK_SPRINTS = [
 ];
 
 const WorkspaceDashboard = () => {
+    const navigate = useNavigate(); // Navigation hook
     const [projects] = useState(MOCK_PROJECTS);
     const [tasks] = useState(MOCK_TASKS);
     const [sprints] = useState(MOCK_SPRINTS);
@@ -38,11 +39,11 @@ const WorkspaceDashboard = () => {
     const taskStats = { total: 4, todo: 1, inProgress: 1, inReview: 1, done: 1 };
     const completionRate = 25;
 
-    // Theme Accent Palettes
+    // Theme Accent Palettes updated to match image_ff5b48.png palette mix
     const statusData = [
-        { name: 'To Do', value: taskStats.todo, fill: '#EF4444' },
+        { name: 'To Do', value: taskStats.todo, fill: '#7A5800' },
         { name: 'In Progress', value: taskStats.inProgress, fill: '#BF9530' }, 
-        { name: 'In Review', value: taskStats.inReview, fill: '#8B5CF6' },
+        { name: 'In Review', value: taskStats.inReview, fill: '#5C5444' },
         { name: 'Done', value: taskStats.done, fill: '#2A2620' }  
     ];
 
@@ -63,6 +64,14 @@ const WorkspaceDashboard = () => {
                 </div>
 
                 <div className="dash-header-controls">
+                    {/* New Analytics Summary Quick Button */}
+                    <button 
+                        className="dash-summary-btn"
+                        onClick={() => navigate(`/summary`)}
+                    >
+                        📈 View Analytics Summary
+                    </button>
+                    
                     <select
                         value={selectedProjectId}
                         onChange={(e) => setSelectedProjectId(e.target.value)}
@@ -146,9 +155,9 @@ const WorkspaceDashboard = () => {
                             <h3 className="dash-empty-title">Priority Densities</h3>
                             <ResponsiveContainer width="100%" height={260}>
                                 <BarChart data={priorityData}>
-                                    <CartesianGrid strokeDasharray="3 3" opacity={0.15} />
-                                    <XAxis dataKey="name" />
-                                    <YAxis />
+                                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(42,38,32,0.06)" />
+                                    <XAxis dataKey="name" stroke="#5C5444" style={{ fontSize: '11px' }} />
+                                    <YAxis stroke="#5C5444" style={{ fontSize: '11px' }} />
                                     <Tooltip />
                                     <Bar dataKey="value" fill="#BF9530" radius={[4, 4, 0, 0]} />
                                 </BarChart>
@@ -159,11 +168,11 @@ const WorkspaceDashboard = () => {
                             <h3 className="dash-empty-title">Velocity Metric Progression</h3>
                             <ResponsiveContainer width="100%" height={260}>
                                 <LineChart data={statusData}>
-                                    <CartesianGrid strokeDasharray="3 3" opacity={0.15} />
-                                    <XAxis dataKey="name" />
-                                    <YAxis />
+                                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(42,38,32,0.06)" />
+                                    <XAxis dataKey="name" stroke="#5C5444" style={{ fontSize: '11px' }} />
+                                    <YAxis stroke="#5C5444" style={{ fontSize: '11px' }} />
                                     <Tooltip />
-                                    <Line type="monotone" dataKey="value" stroke="#2A2620" strokeWidth={2} activeDot={{ r: 8 }} />
+                                    <Line type="monotone" dataKey="value" stroke="#2A2620" strokeWidth={2.5} activeDot={{ r: 6 }} />
                                 </LineChart>
                             </ResponsiveContainer>
                         </div>
@@ -208,7 +217,7 @@ const WorkspaceDashboard = () => {
                 </div>
             )}
 
-            {/* Sprint Status Panel / Empty Fallback Layer */}
+            {/* Sprint Status Panel */}
             {activeTab === 'sprints' && (
                 <div className="dash-list-wrapper">
                     {sprints.length === 0 ? (

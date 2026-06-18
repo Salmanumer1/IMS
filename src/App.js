@@ -12,6 +12,7 @@ import AgileHub from './components/AgileHub';
 import ForYou from './components/ForYou';
 import SprintConsole from './components/SprintConsole';
 import GitIntegration from './components/GitIntegration';
+import Summary from './components/Summary';
 // inside <Route element={<Layout />}>
 
 
@@ -37,6 +38,7 @@ const App = () => {
                     <Route path="/sprints" element={<SprintConsole />} />
                     <Route path="/for-you" element={<ForYou />} />
                     <Route path="/git" element={<GitIntegration />} />
+                    <Route path='/summary' element={<Summary/>}/>
                 </Route>
 
                 {/* Catch-all */}

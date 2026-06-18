@@ -1,7 +1,6 @@
 // frontend/src/pages/SummaryDashboard.jsx
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import API from '../services/api';
+import { useParams, useNavigate } from 'react-router-dom';
 import './Summary.css';
 import {
     LineChart, Line, AreaChart, Area, BarChart, Bar,
@@ -9,37 +8,84 @@ import {
     Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
+// Comprehensive Client-Side Mock Database Engine
+const MOCK_API_DATABASE = {
+    // Data structures indexed explicitly by Project ID to mirror real database queries
+    "1": {
+        tasks: [
+            { id: '101', title: 'Setup database schema with RLS configurations', status: 'In Progress', priority: 'High', parent_id: null, epic_id: 'ep-1', sprint_id: 's2' },
+            { id: '102', title: 'Design component layout architecture', status: 'Done', priority: 'Critical', parent_id: null, epic_id: 'ep-1', sprint_id: 's1' },
+            { id: '103', title: 'Integrate Recharts component primitives', status: 'To Do', priority: 'Medium', parent_id: null, epic_id: 'ep-2', sprint_id: 's2' },
+            { id: '104', title: 'Verify cross-browser CSS support matrix', status: 'In Review', priority: 'Low', parent_id: null, epic_id: 'ep-2', sprint_id: 's2' },
+            { id: '105', title: 'Subtask: Configure Postgres policies', status: 'In Progress', priority: 'High', parent_id: '101', epic_id: 'ep-1', sprint_id: 's2' },
+            { id: '106', title: 'Construct executive summary layouts', status: 'To Do', priority: 'High', parent_id: null, epic_id: 'ep-2', sprint_id: 's3' }
+        ],
+        sprints: [
+            { id: 's1', name: 'Sprint 1 - Foundations', status: 'Closed', start_date: '2026-06-01', end_date: '2026-06-15' },
+            { id: 's2', name: 'Sprint 2 - Visualization Integration', status: 'Active', start_date: '2026-06-16', end_date: '2026-06-30' },
+            { id: 's3', name: 'Sprint 3 - Polish & Launch', status: 'Planned', start_date: '2026-07-01', end_date: '2026-07-15' }
+        ],
+        epics: [
+            { id: 'ep-1', name: 'Epic Architecture & Security Core' },
+            { id: 'ep-2', name: 'Epic Premium Data Insights Engine' }
+        ]
+    },
+    "2": {
+        tasks: [
+            { id: '201', title: 'Build streaming pipeline listeners', status: 'Done', priority: 'Critical', parent_id: null, epic_id: 'ep-3', sprint_id: 's4' },
+            { id: '202', title: 'Document pipeline downstream maps', status: 'In Progress', priority: 'Medium', parent_id: null, epic_id: 'ep-3', sprint_id: 's4' }
+        ],
+        sprints: [
+            { id: 's4', name: 'Pipeline Data Sync Alpha', status: 'Active', start_date: '2026-06-10', end_date: '2026-06-24' }
+        ],
+        epics: [
+            { id: 'ep-3', name: 'Data Pipeline Infrastructure' }
+        ]
+    }
+};
+
+// Fallback template for any undefined/new dynamic Project IDs
+const DEFAULT_FALLBACK_DATA = {
+    tasks: [
+        { id: '901', title: 'Discovery meeting baseline analysis', status: 'Done', priority: 'Low', parent_id: null, epic_id: 'ep-f', sprint_id: 'sf' },
+         { id: '902', title: 'meeting baseline analysis', status: 'In Progress', priority: 'Low', parent_id: null, epic_id: 'ep-u', sprint_id: 'sop' }
+    ],
+    sprints: [
+        { id: 'sf', name: 'Sprint Target Discovery', status: 'Active', start_date: '2026-06-15', end_date: '2026-06-29' }
+    ],
+    epics: [
+        { id: 'ep-f', name: 'General Evaluation' }
+    ]
+};
+
 const Summary = () => {
     const { projectId } = useParams();
+    const navigate = useNavigate();
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchSummaryData();
+        simulateMockFetch();
     }, [projectId]);
 
-    const fetchSummaryData = async () => {
-        try {
-            const response = await API.get(`/agile/hub/${projectId}`);
-            if (response.data.success) {
-                setData(response.data);
-            }
-        } catch (err) {
-            console.error('Error fetching summary:', err);
-        } finally {
+    const simulateMockFetch = () => {
+        setLoading(true);
+        // Simulating a quick, realistic 400ms network layout resolution delay
+        setTimeout(() => {
+            const projectData = MOCK_API_DATABASE[projectId] || DEFAULT_FALLBACK_DATA;
+            setData(projectData);
             setLoading(false);
-        }
+        }, 400);
     };
 
-    if (loading) return <div className="summary-loading">📊 Loading analytics...</div>;
-    if (!data) return <div className="summary-error">Failed to load data</div>;
+    if (loading) return <div className="summary-loading">📊 Loading executive analytics...</div>;
+    if (!data) return <div className="summary-error">Failed to load system data</div>;
 
     const tasks = data.tasks || [];
     const sprints = data.sprints || [];
     const epics = data.epics || [];
     const parentTasks = tasks.filter(t => !t.parent_id);
 
-    // Calculations
     const stats = {
         total: parentTasks.length,
         todo: parentTasks.filter(t => t.status === 'To Do').length,
@@ -52,12 +98,12 @@ const Summary = () => {
         ? Math.round((stats.done / parentTasks.length) * 100)
         : 0;
 
-    // Chart data mapping
+    // Integrated Executive Charcoal & Gold Color Palette configuration
     const statusData = [
-        { name: 'To Do', value: stats.todo, fill: '#EF4444' },
-        { name: 'In Progress', value: stats.inProgress, fill: '#F59E0B' },
-        { name: 'In Review', value: stats.inReview, fill: '#8B5CF6' },
-        { name: 'Done', value: stats.done, fill: '#10B981' }
+        { name: 'To Do', value: stats.todo, fill: '#7A5800' },
+        { name: 'In Progress', value: stats.inProgress, fill: '#BF9530' },
+        { name: 'In Review', value: stats.inReview, fill: '#5C5444' },
+        { name: 'Done', value: stats.done, fill: '#2A2620' }
     ];
 
     const priorityData = [
@@ -80,13 +126,18 @@ const Summary = () => {
 
     return (
         <div className="summary-dashboard">
-            {/* Header */}
+            {/* Header Area */}
             <header className="summary-header">
-                <h1>📊 Analytics & Insights</h1>
-                <p>Comprehensive project analytics and performance metrics</p>
+                <div>
+                    <h1>📊 Analytics & Insights</h1>
+                    <p>Comprehensive project analytics and performance metrics (Mock Environment)</p>
+                </div>
+                <button className="summary-back-btn" onClick={() => navigate(-1)}>
+                    ← Return to Workspace
+                </button>
             </header>
 
-            {/* KPI Section */}
+            {/* Premium Left-Accent Card Grid */}
             <section className="summary-kpi-grid">
                 <div className="summary-kpi-card kpi-1">
                     <div className="kpi-icon">📋</div>
@@ -137,21 +188,19 @@ const Summary = () => {
                 </div>
             </section>
 
-            {/* Charts Section */}
+            {/* Charts Visual Presentation Section */}
             <section className="summary-charts-grid">
-                {/* Task Status Distribution - Pie */}
+                
                 <div className="summary-chart-card">
                     <h3>Task Status Distribution</h3>
                     <ResponsiveContainer width="100%" height={300}>
                         <PieChart>
                             <Pie
                                 data={statusData}
-                                cx="50%"
-                                cy="50%"
+                                cx="50%" cy="50%"
                                 labelLine={false}
                                 label={({ name, value }) => `${name} (${value})`}
                                 outerRadius={85}
-                                fill="#8884d8"
                                 dataKey="value"
                             >
                                 {statusData.map((entry, index) => (
@@ -163,37 +212,41 @@ const Summary = () => {
                     </ResponsiveContainer>
                 </div>
 
-                {/* Priority Distribution - Bar */}
                 <div className="summary-chart-card">
                     <h3>Task Priority Distribution</h3>
                     <ResponsiveContainer width="100%" height={300}>
                         <BarChart data={priorityData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                            <CartesianGrid strokeDasharray="3 3" opacity={0.15} />
-                            <XAxis dataKey="name" />
-                            <YAxis />
+                            <CartesianGrid strokeDasharray="3 3" stroke="rgba(42,38,32,0.06)" />
+                            <XAxis dataKey="name" stroke="#5C5444" style={{ fontSize: '11px' }} />
+                            <YAxis stroke="#5C5444" style={{ fontSize: '11px' }} />
                             <Tooltip />
-                            <Bar dataKey="value" fill="#8B5CF6" radius={[6, 6, 0, 0]} />
+                            <Bar dataKey="value" fill="#BF9530" radius={[6, 6, 0, 0]} />
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
 
-                {/* Status Trend - Area Chart */}
                 <div className="summary-chart-card chart-full-width">
-                    <h3>Task Status Trend</h3>
+                    <h3>Task Status Trend Area</h3>
                     <ResponsiveContainer width="100%" height={300}>
                         <AreaChart data={statusData} margin={{ top: 10, right: 20, left: -20, bottom: 0 }}>
-                            <CartesianGrid strokeDasharray="3 3" opacity={0.15} />
-                            <XAxis dataKey="name" />
-                            <YAxis />
+                            <defs>
+                                <linearGradient id="goldGradient" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="5%" stopColor="#BF9530" stopOpacity={0.3}/>
+                                    <stop offset="95%" stopColor="#BF9530" stopOpacity={0.0}/>
+                                </linearGradient>
+                            </defs>
+                            <CartesianGrid strokeDasharray="3 3" stroke="rgba(42,38,32,0.06)" />
+                            <XAxis dataKey="name" stroke="#5C5444" style={{ fontSize: '11px' }} />
+                            <YAxis stroke="#5C5444" style={{ fontSize: '11px' }} />
                             <Tooltip />
-                            <Area type="monotone" dataKey="value" fill="rgba(102, 126, 234, 0.25)" stroke="#667eea" strokeWidth={2} />
+                            <Area type="monotone" dataKey="value" fill="url(#goldGradient)" stroke="#2A2620" strokeWidth={2.5} />
                         </AreaChart>
                     </ResponsiveContainer>
                 </div>
 
-                {/* Epic Progress - Horizontal Bar */}
+                {/* Epic Progress Section */}
                 <div className="summary-chart-card chart-full-width">
-                    <h3>Epic Progress</h3>
+                    <h3>Epic Progress Metric</h3>
                     {epicData.length === 0 ? (
                         <p className="no-data">No epics created yet</p>
                     ) : (
@@ -221,7 +274,7 @@ const Summary = () => {
 
                 {/* Sprint Overview Table */}
                 <div className="summary-chart-card chart-full-width">
-                    <h3>Sprint Overview</h3>
+                    <h3>Sprint Operational Overview</h3>
                     {sprints.length === 0 ? (
                         <p className="no-data">No sprints created yet</p>
                     ) : (

@@ -1,11 +1,11 @@
-/* frontend/src/pages/Summary.css */
+/* Summary.css — Redesigned into IMS Charcoal & Gold Theme */
 
 .summary-dashboard {
     max-width: 1200px;
     margin: 0 auto;
     padding: 24px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: #2D3748;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #1C1A14;
     background-color: #FAFAFA;
 }
 
@@ -16,30 +16,55 @@
     justify-content: center;
     align-items: center;
     min-height: 280px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #4A5568;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: Georgia, serif;
+    color: #5C5444;
 }
 .summary-error {
-    color: #E53E3E;
+    color: #C92A2A;
 }
 
 /* ── Header Area ── */
 .summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(42,38,32,0.10);
 }
 
 .summary-header h1 {
     font-size: 26px;
     font-weight: 700;
     margin: 0 0 6px 0;
-    color: #1A202C;
+    color: #1C1A14;
+    font-family: Georgia, serif;
 }
 
 .summary-header p {
     margin: 0;
-    font-size: 14px;
-    color: #718096;
+    font-size: 13px;
+    color: #5C5444;
+}
+
+.summary-back-btn {
+    padding: 9px 18px;
+    background-color: #2A2620;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(42,38,32,0.15);
+    transition: all 0.15s ease;
+}
+
+.summary-back-btn:hover {
+    background-color: #3D3830;
+    transform: translateY(-1px);
 }
 
 /* ── KPI Layout Grid ── */
@@ -52,50 +77,51 @@
 
 .summary-kpi-card {
     background: #FFFFFF;
-    border: 1px solid #E2E8F0;
+    border: 1px solid rgba(42,38,32,0.08);
     border-radius: 10px;
     padding: 16px;
     display: flex;
     align-items: center;
     gap: 14px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    box-shadow: 0 2px 6px rgba(42,38,32,0.03);
 }
 
 .kpi-icon {
-    font-size: 22px;
-    width: 42px;
-    height: 42px;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #F7FAFC;
+    background: rgba(42,38,32,0.04);
     flex-shrink: 0;
 }
 
 .kpi-label {
     margin: 0;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: #718096;
+    color: #5C5444;
 }
 
 .summary-kpi-card h3 {
     margin: 2px 0 0 0;
-    font-size: 20px;
+    font-size: 22px;
+    font-family: Georgia, serif;
     font-weight: 700;
-    color: #1A202C;
+    color: #1C1A14;
 }
 
-/* Left Accent KPI Borders */
-.kpi-1 { border-left: 4px solid #4A5568; }
-.kpi-2 { border-left: 4px solid #F59E0B; }
-.kpi-3 { border-left: 4px solid #10B981; }
-.kpi-4 { border-left: 4px solid #3B82F6; }
-.kpi-5 { border-left: 4px solid #6366F1; }
-.kpi-6 { border-left: 4px solid #8B5CF6; }
+/* Luxury Charcoal & Gold Accent Left Borders */
+.kpi-1 { border-left: 4px solid #2A2620; }
+.kpi-2 { border-left: 4px solid #7A5800; }
+.kpi-3 { border-left: 4px solid #BF9530; }
+.kpi-4 { border-left: 4px solid #5C5444; }
+.kpi-5 { border-left: 4px solid #2A2620; }
+.kpi-6 { border-left: 4px solid #BF9530; }
 
 /* ── Charts Presentation Grid ── */
 .summary-charts-grid {
@@ -106,17 +132,18 @@
 
 .summary-chart-card {
     background: #FFFFFF;
-    border: 1px solid #E2E8F0;
+    border: 1px solid rgba(42,38,32,0.08);
     border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+    padding: 22px;
+    box-shadow: 0 4px 12px rgba(42,38,32,0.03);
 }
 
 .summary-chart-card h3 {
     margin: 0 0 20px 0;
     font-size: 15px;
     font-weight: 600;
-    color: #2D3748;
+    color: #1C1A14;
+    font-family: Georgia, serif;
 }
 
 .chart-full-width {
@@ -146,12 +173,12 @@
     margin: 0;
     font-size: 13.5px;
     font-weight: 600;
-    color: #2D3748;
+    color: #1C1A14;
 }
 
 .epic-count {
-    font-size: 12px;
-    color: #718096;
+    font-size: 11px;
+    color: #5C5444;
 }
 
 .epic-progress-container {
@@ -162,23 +189,22 @@
 
 .epic-progress-bar {
     flex: 1;
-    height: 8px;
-    background: #EDF2F7;
+    height: 7px;
+    background: rgba(42,38,32,0.06);
     border-radius: 4px;
     overflow: hidden;
 }
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(90deg, #2A2620 0%, #BF9530 100%);
     border-radius: 4px;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .progress-percent {
     font-size: 12px;
     font-weight: 600;
-    color: #4A5568;
+    color: #1C1A14;
     min-width: 32px;
     text-align: right;
 }
@@ -196,24 +222,24 @@
 }
 
 .sprint-overview-table th {
-    background: #F7FAFC;
-    color: #4A5568;
+    background: rgba(42,38,32,0.03);
+    color: #1C1A14;
     font-weight: 600;
     padding: 12px 16px;
-    border-bottom: 2px solid #EDF2F7;
+    border-bottom: 2px solid rgba(42,38,32,0.08);
 }
 
 .sprint-overview-table td {
     padding: 14px 16px;
-    border-bottom: 1px solid #EDF2F7;
-    color: #4A5568;
+    border-bottom: 1px solid rgba(42,38,32,0.06);
+    color: #5C5444;
 }
 
 .sprint-overview-table tr:last-child td {
     border-bottom: none;
 }
 
-/* Badges styling */
+/* Badges styling matching image_ff5b48.png accents */
 .status-badge {
     display: inline-block;
     padding: 4px 8px;
@@ -224,26 +250,27 @@
 }
 
 .sprint-active {
-    background-color: #E6FFFA;
-    color: #047481;
+    background-color: rgba(191,149,48,0.12);
+    color: #7A5800;
 }
 
 .sprint-planned {
-    background-color: #EBF8FF;
-    color: #2B6CB0;
+    background-color: rgba(42,38,32,0.06);
+    color: #5C5444;
 }
 
 .sprint-closed {
-    background-color: #EDF2F7;
-    color: #4A5568;
+    background-color: #2A2620;
+    color: #FFFFFF;
 }
 
 .no-data {
-    color: #A0AEC0;
+    color: #5C5444;
     font-size: 13px;
     text-align: center;
     padding: 24px 0;
     margin: 0;
+    font-style: italic;
 }
 
 /* ── Responsive Screen Adjustments ── */
@@ -253,5 +280,10 @@
     }
     .chart-full-width {
         grid-column: span 1;
+    }
+    .summary-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
     }
 }
