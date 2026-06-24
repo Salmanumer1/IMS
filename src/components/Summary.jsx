@@ -78,7 +78,7 @@ const Summary = () => {
         }, 400);
     };
 
-    if (loading) return <div className="summary-loading">📊 Loading executive analytics...</div>;
+    if (loading) return <div className="summary-loading"> Loading executive analytics...</div>;
     if (!data) return <div className="summary-error">Failed to load system data</div>;
 
     const tasks = data.tasks || [];
@@ -129,7 +129,7 @@ const Summary = () => {
             {/* Header Area */}
             <header className="summary-header">
                 <div>
-                    <h1>📊 Analytics & Insights</h1>
+                    <h1> Analytics & Insights</h1>
                     <p>Comprehensive project analytics and performance metrics (Mock Environment)</p>
                 </div>
                 <button className="summary-back-btn" onClick={() => navigate(-1)}>
@@ -140,7 +140,7 @@ const Summary = () => {
             {/* Premium Left-Accent Card Grid */}
             <section className="summary-kpi-grid">
                 <div className="summary-kpi-card kpi-1">
-                    <div className="kpi-icon">📋</div>
+                    <div className="kpi-icon"></div>
                     <div>
                         <p className="kpi-label">Total Tasks</p>
                         <h3>{stats.total}</h3>
@@ -148,7 +148,7 @@ const Summary = () => {
                 </div>
 
                 <div className="summary-kpi-card kpi-2">
-                    <div className="kpi-icon">⚙️</div>
+                    <div className="kpi-icon"></div>
                     <div>
                         <p className="kpi-label">In Progress</p>
                         <h3>{stats.inProgress}</h3>
@@ -156,7 +156,7 @@ const Summary = () => {
                 </div>
 
                 <div className="summary-kpi-card kpi-3">
-                    <div className="kpi-icon">✅</div>
+                    <div className="kpi-icon"></div>
                     <div>
                         <p className="kpi-label">Completed</p>
                         <h3>{stats.done}</h3>
@@ -164,7 +164,7 @@ const Summary = () => {
                 </div>
 
                 <div className="summary-kpi-card kpi-4">
-                    <div className="kpi-icon">📈</div>
+                    <div className="kpi-icon"></div>
                     <div>
                         <p className="kpi-label">Completion</p>
                         <h3>{completionRate}%</h3>
@@ -172,7 +172,7 @@ const Summary = () => {
                 </div>
 
                 <div className="summary-kpi-card kpi-5">
-                    <div className="kpi-icon">🎯</div>
+                    <div className="kpi-icon"></div>
                     <div>
                         <p className="kpi-label">Epics</p>
                         <h3>{epics.length}</h3>
@@ -180,7 +180,7 @@ const Summary = () => {
                 </div>
 
                 <div className="summary-kpi-card kpi-6">
-                    <div className="kpi-icon">🚀</div>
+                    <div className="kpi-icon"></div>
                     <div>
                         <p className="kpi-label">Sprints</p>
                         <h3>{sprints.length}</h3>

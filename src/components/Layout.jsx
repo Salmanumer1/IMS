@@ -39,7 +39,7 @@ const Layout = () => {
                         to="/workspace"
                         className={`layout-nav-link${isActive('/workspace') ? ' actijirave' : ''}`}
                     >
-                        <span className="layout-nav-icon">📊</span>
+                        <span className="layout-nav-icon"></span>
                         Dashboard
                         {isActive('/workspace') && <span className="layout-active-dot" />}
                     </Link>
@@ -47,7 +47,7 @@ const Layout = () => {
                         to="/git"
                         className={`layout-nav-link${isActive('/git') ? ' actijirave' : ''}`}
                     >
-                        <span className="layout-nav-icon">📊</span>
+                        <span className="layout-nav-icon"></span>
                        Git
                         {isActive('/git') && <span className="layout-active-dot" />}
                     </Link>
@@ -56,45 +56,31 @@ const Layout = () => {
                         to="/projects"
                         className={`layout-nav-link${isActive('/projects') ? ' active' : ''}`}
                     >
-                        <span className="layout-nav-icon">📁</span>
+                        <span className="layout-nav-icon"></span>
                         Projects
                         {isActive('/projects') && <span className="layout-active-dot" />}
                     </Link>
 
                     {/* Onboard Members Link */}
-                    <Link
-                        to="/register-user"
-                        className={`layout-nav-link${isActive('/register-user') ? ' active' : ''}`}
-                    >
-                        <span className="layout-nav-icon">👤</span>
-                        Onboard Members
-                        {isActive('/register-user') && <span className="layout-active-dot" />}
-                    </Link>
+                 
 
                     {/* Launch Project Link */}
                     <Link
                         to="/create-project"
                         className={`layout-nav-link${isActive('/create-project') ? ' active' : ''}`}
                     >
-                        <span className="layout-nav-icon">🚀</span>
+                        <span className="layout-nav-icon"></span>
                         Launch Project
                         {isActive('/create-project') && <span className="layout-active-dot" />}
                     </Link>
 
                     {/* Kanban Board Link */}
-                    <Link
-                        to="/kanban"
-                        className={`layout-nav-link${isActive('/kanban') ? ' active' : ''}`}
-                    >
-                        <span className="layout-nav-icon">📋</span>
-                        Kanban Board
-                        {isActive('/kanban') && <span className="layout-active-dot" />}
-                    </Link>
+                 
                      <Link
                         to="/sprints"
                         className={`layout-nav-link${isActive('/sprints') ? ' actijirave' : ''}`}
                     >
-                        <span className="layout-nav-icon">📊</span>
+                        <span className="layout-nav-icon"></span>
                         Sprints
                         {isActive('/sprints') && <span className="layout-active-dot" />}
                     </Link>
@@ -103,7 +89,7 @@ const Layout = () => {
                         to='/agile-hub'
                         className={`layout-nav-link${isActive('/agile-hub') ? ' active' : ''}`}
                     >
-                        <span className="layout-nav-icon">📋</span>
+                        <span className="layout-nav-icon"></span>
                        Agile
                         {isActive('/kanban') && <span className="layout-active-dot" />}
                     </Link>
@@ -111,7 +97,7 @@ const Layout = () => {
                         to='/for-you'
                         className={`layout-nav-link${isActive('/for-you') ? ' active' : ''}`}
                     >
-                        <span className="layout-nav-icon">📋</span>
+                        <span className="layout-nav-icon"></span>
                        ForYou
                         {isActive('/kanban') && <span className="layout-active-dot" />}
                     </Link>
